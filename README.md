@@ -4,7 +4,8 @@ Clock work for Microcontroller classroom 2020
 1. Using the PIC16F877 or **PIC16F84A** the control of opening of the laboratory doors is made, this element sends the command so that 3 motors are moved that make part of the 3 doors of the laboratory in sense towards left and right that fulfill the operation of opening and closing, the opening is synchronized with a clock that makes the control of the following form:
 
 * Starting the clock at 0:00 does not open any door.
-Starting the clock at 0:00 no door is opened. * At 0:59 the first door is opened so the first motor is turned to the left.
+Starting the clock at 0:00 no door is opened. 
+* At 0:59 the first door is opened so the first motor is turned to the left.
 * At 1:59 the first door closes, the first motor moves to the left and the second motor moves to the right, opening the second door.
 * In 2:59 the second door closes, the second engine moves to the left and the third engine moves to the right, opening the third door.
 * In 3:59 all doors close.
