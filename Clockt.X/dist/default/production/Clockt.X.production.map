@@ -1,0 +1,49 @@
+MPLINK 5.09, LINKER
+Linker Map File - Created Thu Apr 09 22:37:33 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .cinit    romdata   0x000000    program   0x000004
+                   .org_1       code   0x000005    program   0x00008a
+.config_2007_BUILD/DEFAULT/PRODUCTION/MAINC.O       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000001      
+                            0x000005    0x000049      
+                            0x002007    0x002007      
+            72 out of 1094 program addresses used, program memory utilization is 6%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+        ActualizarDisplay   0x00002a    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+                  BCD7SEG   0x000005    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+                    Ciclo   0x000019    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+              Esperar_5ms   0x000041    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+                Refrescar   0x00002c    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+              Repeticion1   0x000043    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+              Repeticion2   0x000045    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+                    START   0x000010    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  BCD7SEG   0x000005    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+                    START   0x000010    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+                    Ciclo   0x000019    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+        ActualizarDisplay   0x00002a    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+                Refrescar   0x00002c    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+              Esperar_5ms   0x000041    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+              Repeticion1   0x000043    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+              Repeticion2   0x000045    program     static C:\Users\migue\OneDrive\Escritorio\PIC16F84A_Clock\Clockt.X\mainC.asm
+
+

@@ -1,0 +1,80 @@
+__S0 0 0 ABS 0
+__S1 0 0 ABS 0
+__S3 0 0 ABS 0
+__Hintentry 0 0 CODE 0
+__Lintentry 0 0 CODE 0
+_main 0 0 ABS 0
+___sp 0 0 STACK 2
+start 0 0 CODE 0
+reset_vec 0 0 CODE 0
+__Hconfig 0 0 CONFIG 0
+__Lconfig 0 0 CONFIG 0
+__Hram 0 0 ABS 0
+__Lram 0 0 ABS 0
+__Hfunctab 0 0 ENTRY 0
+__Lfunctab 0 0 ENTRY 0
+__Hcommon 0 0 ABS 0
+__Lcommon 0 0 ABS 0
+__Heeprom_data 0 0 EEDATA 3
+__Leeprom_data 0 0 EEDATA 3
+___int_sp 0 0 STACK 2
+__Habs1 0 0 ABS 0
+__Labs1 0 0 ABS 0
+__Hsfr0 0 0 ABS 0
+__Lsfr0 0 0 ABS 0
+__Hsfr1 0 0 ABS 0
+__Lsfr1 0 0 ABS 0
+___stackhi 0 0 ABS 0
+__Hcode 0 0 ABS 0
+__Lcode 0 0 ABS 0
+__Hinit 0 0 CODE 0
+__Linit 0 0 CODE 0
+__Htext 0 0 ABS 0
+__Ltext 0 0 ABS 0
+___stacklo 0 0 ABS 0
+__Hstrings 0 0 ABS 0
+__Lstrings 0 0 ABS 0
+__Hbank0 0 0 ABS 0
+__Lbank0 0 0 ABS 0
+__Hbank1 0 0 BANK1 1
+__Lbank1 0 0 BANK1 1
+__Hpowerup 0 0 CODE 0
+__Lpowerup 0 0 CODE 0
+__Hclrtext 0 0 ABS 0
+__Lclrtext 0 0 ABS 0
+__Hidloc 0 0 IDLOC 0
+__Lidloc 0 0 IDLOC 0
+__Hstack 0 0 STACK 2
+__Lstack 0 0 STACK 2
+__Hspace_0 2 0 ABS 0
+__Lspace_0 0 0 ABS 0
+__Hspace_1 0 0 ABS 0
+__Lspace_1 0 0 ABS 0
+__Hspace_2 0 0 ABS 0
+__Lspace_2 0 0 ABS 0
+__Hcinit 0 0 CODE 0
+__Lcinit 0 0 CODE 0
+__Hspace_3 0 0 ABS 0
+__Lspace_3 0 0 ABS 0
+__Hpa_nodes0 0 0 ABS 0
+__Lpa_nodes0 0 0 ABS 0
+__Hend_init 2 0 CODE 0
+__Lend_init 0 0 CODE 0
+__Hreset_vec 0 0 CODE 0
+__Lreset_vec 0 0 CODE 0
+intlevel0 0 0 ENTRY 0
+intlevel1 0 0 ENTRY 0
+intlevel2 0 0 ENTRY 0
+intlevel3 0 0 ENTRY 0
+intlevel4 0 0 ENTRY 0
+intlevel5 0 0 ENTRY 0
+start_initialization 0 0 ABS 0
+__Hmaintext 0 0 ABS 0
+__Lmaintext 0 0 ABS 0
+%segments
+reset_vec 0 3 CODE 0 0
+%locals
+build/default/production/mainC.o
+2
+1 0
+2 0
