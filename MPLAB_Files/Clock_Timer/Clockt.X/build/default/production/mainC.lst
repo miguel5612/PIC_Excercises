@@ -1,4 +1,4 @@
-MPASM 5.84                         MAINC.ASM   4-9-2020  22:37:31         PAGE  1
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -6,7 +6,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 
 Warning[205]: Found directive in column 1. (LIST)
                       00001 LIST P = 16F84A
-                      00002 #include "p16f84a.inc"
+                      00002 #include "p16f84A.inc"
                       00001         LIST
                       00002 
                       00003 ;==========================================================================
@@ -19,146 +19,151 @@ Warning[205]: Found directive in column 1. (LIST)
                       00209         LIST
 Warning[205]: Found directive in column 1. (__CONFIG)
 2007   3FF1           00003 __CONFIG _FOSC_XT & _WDTE_OFF & _PWRTE_ON & _CP_OFF
-Warning[205]: Found directive in column 1. (ORG)
-                      00004 ORG 0
-                      00005 ;*******************************************************************************
-                      00006 ; DEFINICION DE VARIABLES 
-                      00007 ;*******************************************************************************
+                      00004 ;*******************************************************************************
+                      00005 ; INICIO DEL PROGRAMA
+                      00006 ;*******************************************************************************
+                      00007     ORG 0X00
+0000   2???           00008     GOTO START
+                      00009 ;*******************************************************************************
+                      00010 ; DEFINICION DE VARIABLES 
+                      00011 ;*******************************************************************************
 Warning[207]: Found label after column 1. (Unidad)
-  0000000C            00008  Unidad equ 0x0C
+  0000000C            00012  Unidad equ 0x0C
 Warning[207]: Found label after column 1. (Decena)
-  0000000D            00009  Decena equ 0x0D
+  0000000D            00013  Decena equ 0x0D
 Warning[207]: Found label after column 1. (Centena)
-  0000000E            00010  Centena equ 0x0E
-                      00011  ; Contadores
+  0000000E            00014  Centena equ 0x0E
+                      00015  ; Contadores
 Warning[207]: Found label after column 1. (Contador)
-  0000000F            00012  Contador equ 0x0F
+  0000000F            00016  Contador equ 0x0F
 Warning[207]: Found label after column 1. (Contador1)
-  00000010            00013  Contador1 equ 0x10
+  00000010            00017  Contador1 equ 0x10
 Warning[207]: Found label after column 1. (Contador2)
-  00000011            00014  Contador2 equ 0x11 
-                      00015  ; Banderas
+  00000011            00018  Contador2 equ 0x11 
+                      00019  ; Banderas
 Warning[207]: Found label after column 1. (MuestroU)
-  00000002            00016  MuestroU equ 2
+  00000002            00020  MuestroU equ 2
 Warning[207]: Found label after column 1. (MuestroD)
-  00000001            00017  MuestroD equ 1
+  00000001            00021  MuestroD equ 1
 Warning[207]: Found label after column 1. (MuestroC)
-  00000000            00018  MuestroC equ 0
-                      00019 ;*******************************************************************************
-                      00020 ; INICIO DEL PROGRAMA
-                      00021 ;*******************************************************************************
-                      00022 ; Tabla de conversion BCD a 7 Segmentos
+  00000000            00022  MuestroC equ 0
+                      00023 ;*******************************************************************************
+                      00024 ; INICIO DEL PROGRAMA
+                      00025 ;*******************************************************************************
+                      00026 ; Tabla de conversion BCD a 7 Segmentos
 Warning[205]: Found directive in column 1. (ORG)
-                      00023 ORG 0x05
-0005                  00024 BCD7SEG
-0005   0782           00025     addwf PCL, 1
-0006   343F 3406 345B 00026     DT 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0xFF, 0x6F
+                      00027 ORG 0X05
+0005                  00028 BCD7SEG
+0005   0782           00029     addwf PCL, 1
+0006   343F 3406 345B 00030     DT 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0xFF, 0x6F
        344F 3466 346D 
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
        347D 3407 34FF 
        346F 
-0010                  00027 START
-MPASM 5.84                         MAINC.ASM   4-9-2020  22:37:31         PAGE  2
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-0010   1683           00028     BSF STATUS, RP0
+0010                  00031 START
+0010   1683           00032     BSF STATUS, RP0
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0011   0185           00029     CLRF TRISA
+0011   0185           00033     CLRF TRISA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0012   0186           00030     CLRF TRISB
-0013   1283           00031     BCF STATUS, RP0
-0014   0185           00032     CLRF PORTA
-0015   018C           00033     CLRF Unidad
-0016   018D           00034     CLRF Decena
-0017   018E           00035     CLRF Centena
-0018   2???           00036     GOTO ActualizarDisplay
-                      00037     ;**************************************************************
-                      00038     ; CHEQUEO DE PULSADORES
-                      00039     ;**************************************************************
+0012   0186           00034     CLRF TRISB
+0013   1283           00035     BCF STATUS, RP0
+0014   0185           00036     CLRF PORTA
+0015   018C           00037     CLRF Unidad
+0016   018D           00038     CLRF Decena
+0017   018E           00039     CLRF Centena
+0018   2???           00040     GOTO ActualizarDisplay
+                      00041     ;**************************************************************
+                      00042     ; CHEQUEO DE PULSADORES
+                      00043     ;**************************************************************
 Warning[207]: Found label after column 1. (Ciclo)
-0019                  00040     Ciclo
-0019   0A8C           00041         INCF Unidad, 1
-001A   300A           00042         MOVLW d'10'
-001B   020C           00043         SUBWF Unidad, 0
-001C   2???           00044         GOTO ActualizarDisplay
-001D   018C           00045         CLRF Unidad
-001E   0A8D           00046         INCF Decena, 1
-001F   300A           00047         MOVLW d'10'
-0020   020D           00048         SUBWF Decena, 0
-0021   1D03           00049         BTFSS STATUS, Z
-0022   2???           00050         GOTO ActualizarDisplay
-0023   018D           00051         CLRF Decena
-0024   0A8E           00052         INCF Centena, 1
-0025   300A           00053         MOVLW d'10'
-0026   020E           00054         SUBWF Centena, 0
-0027   1D03           00055         BTFSS STATUS, Z
-0028   2???           00056         GOTO ActualizarDisplay
-0029   018E           00057         CLRF Centena
-                      00058     ; ***********************************************************
-                      00059     ; MULTIPLEXO LOS DISPLAY
-                      00060     ;************************************************************
+0019                  00044     Ciclo
+0019   0A8C           00045         INCF Unidad, 1
+001A   300A           00046         MOVLW d'10'
+001B   020C           00047         SUBWF Unidad, 0
+001C   1D03           00048         BTFSS STATUS, Z
+001D   2???           00049         GOTO ActualizarDisplay
+001E   018C           00050         CLRF Unidad
+001F   0A8D           00051         INCF Decena, 1
+0020   300A           00052         MOVLW d'10'
+0021   020D           00053         SUBWF Decena, 0
+0022   1D03           00054         BTFSS STATUS, Z
+0023   2???           00055         GOTO ActualizarDisplay
+0024   018D           00056         CLRF Decena
+0025   0A8E           00057         INCF Centena, 1
+0026   300A           00058         MOVLW d'10'
+0027   020E           00059         SUBWF Centena, 0
+0028   1D03           00060         BTFSS STATUS, Z
+0029   2???           00061         GOTO ActualizarDisplay
+002A   018E           00062         CLRF Centena
+                      00063     ; ***********************************************************
+                      00064     ; MULTIPLEXO LOS DISPLAY
+                      00065     ;************************************************************
 Warning[207]: Found label after column 1. (ActualizarDisplay)
-002A                  00061     ActualizarDisplay
-002A   3014           00062         MOVLW d'20'
-002B   008F           00063         MOVWF Contador
+002B                  00066     ActualizarDisplay
+002B   3014           00067         MOVLW d'20'
+002C   008F           00068         MOVWF Contador
+                      00069         
 Warning[207]: Found label after column 1. (Refrescar)
-002C                  00064     Refrescar
-002C   080C           00065         MOVFW Unidad
-002D   2???           00066         CALL BCD7SEG
-002E   1005           00067         BCF PORTA, MuestroC
-002F   0086           00068         MOVWF PORTB
-0030   1505           00069         BSF PORTA, MuestroU
-0031   2???           00070         CALL Esperar_5ms
-0032   080D           00071         MOVFW Decena
-0033   2???           00072         CALL BCD7SEG
-0034   1105           00073         BCF PORTA, MuestroU
-0035   0086           00074         MOVWF PORTB
-0036   1485           00075         BSF PORTA, MuestroD
-MPASM 5.84                         MAINC.ASM   4-9-2020  22:37:31         PAGE  3
+002D                  00070     Refrescar
+002D   080C           00071         MOVFW Unidad
+002E   2???           00072         CALL BCD7SEG
+002F   1005           00073         BCF PORTA, MuestroC
+0030   0086           00074         MOVWF PORTB
+0031   1505           00075         BSF PORTA, MuestroU
+0032   2???           00076         CALL Esperar_5ms
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0037   2???           00076         CALL Esperar_5ms
-0038   080E           00077         MOVFW Centena
-0039   2???           00078         CALL BCD7SEG
-003A   1085           00079         BCF PORTA, MuestroD
-003B   0086           00080         MOVWF PORTB
-003C   1405           00081         BSF PORTA, MuestroC
-003D   2???           00082         CALL Esperar_5ms
-003E   0B8F           00083         DECFSZ Contador, 1
-003F   2???           00084         GOTO Refrescar
-0040   2???           00085         GOTO Ciclo
-                      00086     ;***************************************************************
-                      00087     ; Function de esperar 5 mS
-                      00088     ;***************************************************************
+0033   080D           00077         MOVFW Decena
+0034   2???           00078         CALL BCD7SEG
+0035   1105           00079         BCF PORTA, MuestroU
+0036   0086           00080         MOVWF PORTB
+0037   1485           00081         BSF PORTA, MuestroD
+0038   2???           00082         CALL Esperar_5ms
+0039   080E           00083         MOVFW Centena
+003A   2???           00084         CALL BCD7SEG
+003B   1085           00085         BCF PORTA, MuestroD
+003C   0086           00086         MOVWF PORTB
+003D   1405           00087         BSF PORTA, MuestroC
+003E   2???           00088         CALL Esperar_5ms
+003F   0B8F           00089         DECFSZ Contador, 1
+0040   2???           00090         GOTO Ciclo
+0041   2???           00091         GOTO Refrescar
+                      00092     ;***************************************************************
+                      00093     ; Function de esperar 5 mS
+                      00094     ;***************************************************************
 Warning[207]: Found label after column 1. (Esperar_5ms)
-0041                  00089     Esperar_5ms
-0041   30FF           00090         MOVLW 0xFF
-0042   0090           00091         MOVWF Contador1
+0042                  00095     Esperar_5ms
+0042   30FF           00096         MOVLW 0xFF
+0043   0090           00097         MOVWF Contador1
 Warning[207]: Found label after column 1. (Repeticion1)
-0043                  00092     Repeticion1
-0043   3005           00093         MOVLW 0x05
-0044   0091           00094         MOVWF Contador2
+0044                  00098     Repeticion1
+0044   3005           00099         MOVLW 0x05
+0045   0091           00100         MOVWF Contador2
 Warning[207]: Found label after column 1. (Repeticion2)
-0045                  00095     Repeticion2
-0045   0B91           00096         DECFSZ Contador2, 1
-0046   2???           00097         GOTO Repeticion2
-0047   0B90           00098         DECFSZ Contador1, 1
-0048   2???           00099         GOTO Repeticion1
-0049   0008           00100         return
+0046                  00101     Repeticion2
+0046   0B91           00102         DECFSZ Contador2, 1
+0047   2???           00103         GOTO Repeticion2
+0048   0B90           00104         DECFSZ Contador1, 1
+0049   2???           00105         GOTO Repeticion1
+004A   0008           00106         return
 Warning[205]: Found directive in column 1. (END)
-3FF1                  00101 END
-MPASM 5.84                         MAINC.ASM   4-9-2020  22:37:31         PAGE  4
+3FF1                  00107 END
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  4
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
-ActualizarDisplay                 0000002A
+ActualizarDisplay                 0000002B
 BCD7SEG                           00000005
 C                                 00000000
 Centena                           0000000E
@@ -174,7 +179,7 @@ EECON2                            00000089
 EEDATA                            00000008
 EEIE                              00000006
 EEIF                              00000004
-Esperar_5ms                       00000041
+Esperar_5ms                       00000042
 F                                 00000001
 FSR                               00000004
 GIE                               00000007
@@ -211,7 +216,7 @@ RB3                               00000003
 RB4                               00000004
 RB5                               00000005
 RB6                               00000006
-MPASM 5.84                         MAINC.ASM   4-9-2020  22:37:31         PAGE  5
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  5
 
 
 SYMBOL TABLE
@@ -223,9 +228,9 @@ RBIF                              00000000
 RD                                00000000
 RP0                               00000005
 RP1                               00000006
-Refrescar                         0000002C
-Repeticion1                       00000043
-Repeticion2                       00000045
+Refrescar                         0000002D
+Repeticion1                       00000044
+Repeticion2                       00000046
 START                             00000010
 STATUS                            00000003
 T0CS                              00000005
@@ -270,7 +275,7 @@ _IDLOC1                           00002001
 _IDLOC2                           00002002
 _IDLOC3                           00002003
 _LP_OSC                           00003FFC
-MPASM 5.84                         MAINC.ASM   4-9-2020  22:37:31         PAGE  6
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  6
 
 
 SYMBOL TABLE
@@ -287,7 +292,7 @@ _XT_OSC                           00003FFD
 __16F84A                          00000001
 
 Errors   :     0
-Warnings :    20 reported,     0 suppressed
+Warnings :    19 reported,     0 suppressed
 Messages :     2 reported,     0 suppressed
 
 

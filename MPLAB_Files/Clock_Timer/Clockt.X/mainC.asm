@@ -1,7 +1,11 @@
 LIST P = 16F84A
-#include "p16f84a.inc"
+#include "p16f84A.inc"
 __CONFIG _FOSC_XT & _WDTE_OFF & _PWRTE_ON & _CP_OFF
-ORG 0
+;*******************************************************************************
+; INICIO DEL PROGRAMA
+;*******************************************************************************
+    ORG 0X00
+    GOTO START
 ;*******************************************************************************
 ; DEFINICION DE VARIABLES 
 ;*******************************************************************************
@@ -20,7 +24,7 @@ ORG 0
 ; INICIO DEL PROGRAMA
 ;*******************************************************************************
 ; Tabla de conversion BCD a 7 Segmentos
-ORG 0x05
+ORG 0X05
 BCD7SEG
     addwf PCL, 1
     DT 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0xFF, 0x6F
@@ -41,6 +45,7 @@ START
 	INCF Unidad, 1
 	MOVLW d'10'
 	SUBWF Unidad, 0
+	BTFSS STATUS, Z
 	GOTO ActualizarDisplay
 	CLRF Unidad
 	INCF Decena, 1
@@ -61,6 +66,7 @@ START
     ActualizarDisplay
 	MOVLW d'20'
 	MOVWF Contador
+	
     Refrescar
 	MOVFW Unidad
 	CALL BCD7SEG
@@ -81,8 +87,8 @@ START
 	BSF PORTA, MuestroC
 	CALL Esperar_5ms
 	DECFSZ Contador, 1
-	GOTO Refrescar
 	GOTO Ciclo
+	GOTO Refrescar
     ;***************************************************************
     ; Function de esperar 5 mS
     ;***************************************************************
