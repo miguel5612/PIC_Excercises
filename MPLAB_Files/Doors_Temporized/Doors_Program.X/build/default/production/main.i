@@ -14,6 +14,16 @@
 
 
 
+#pragma config FOSC = XT
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config BOREN = ON
+#pragma config LVP = ON
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
@@ -1728,12 +1738,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 18 "main.c" 2
 
 
 
 
-void main(void) {
+
+void main(void)
+{
     TRISB = 0X00;
     PORTB = 0X00;
     TRISD = 0XFF;
@@ -1748,7 +1760,7 @@ void main(void) {
         {
             PORTBbits.RB0 = 0;
             PORTBbits.RB1 = 1;
-
+            _delay((unsigned long)((22000)*(4000000/4000.0)));
             PORTBbits.RB1 = 0;
         }
 
@@ -1758,9 +1770,9 @@ void main(void) {
             PORTBbits.RB1 = 0;
             PORTBbits.RB2 = 0;
             PORTBbits.RB3 = 1;
-
+            _delay((unsigned long)((22000)*(4000000/4000.0)));
             PORTBbits.RB3 = 0;
-
+            _delay((unsigned long)((26000)*(4000000/4000.0)));
             PORTBbits.RB0 = 0;
         }
 
@@ -1770,9 +1782,9 @@ void main(void) {
             PORTBbits.RB3 = 0;
             PORTBbits.RB4 = 0;
             PORTBbits.RB5 = 1;
-
+            _delay((unsigned long)((22000)*(4000000/4000.0)));
             PORTBbits.RB5 = 0;
-
+            _delay((unsigned long)((26000)*(4000000/4000.0)));
             PORTBbits.RB2 = 0;
         }
 
@@ -1780,8 +1792,8 @@ void main(void) {
         {
             PORTBbits.RB4 = 1;
             PORTBbits.RB5 = 0;
-
-
+            _delay((unsigned long)((22000)*(4000000/4000.0)));
+            _delay((unsigned long)((26000)*(4000000/4000.0)));
             PORTBbits.RB4 = 0;
         }
     }

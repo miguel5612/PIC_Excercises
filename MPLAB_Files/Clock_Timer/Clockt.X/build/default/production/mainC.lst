@@ -1,4 +1,4 @@
-MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  1
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:21:04         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (ORG)
 0005   0782           00029     addwf PCL, 1
 0006   343F 3406 345B 00030     DT 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0xFF, 0x6F
        344F 3466 346D 
-MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  2
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:21:04         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Warning[207]: Found label after column 1. (Refrescar)
 0030   0086           00074         MOVWF PORTB
 0031   1505           00075         BSF PORTA, MuestroU
 0032   2???           00076         CALL Esperar_5ms
-MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  3
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:21:04         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -157,7 +157,7 @@ Warning[207]: Found label after column 1. (Repeticion2)
 004A   0008           00106         return
 Warning[205]: Found directive in column 1. (END)
 3FF1                  00107 END
-MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  4
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:21:04         PAGE  4
 
 
 SYMBOL TABLE
@@ -216,7 +216,7 @@ RB3                               00000003
 RB4                               00000004
 RB5                               00000005
 RB6                               00000006
-MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  5
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:21:04         PAGE  5
 
 
 SYMBOL TABLE
@@ -275,7 +275,7 @@ _IDLOC1                           00002001
 _IDLOC2                           00002002
 _IDLOC3                           00002003
 _LP_OSC                           00003FFC
-MPASM 5.84                         MAINC.ASM   4-11-2020  17:11:33         PAGE  6
+MPASM 5.84                         MAINC.ASM   4-11-2020  17:21:04         PAGE  6
 
 
 SYMBOL TABLE

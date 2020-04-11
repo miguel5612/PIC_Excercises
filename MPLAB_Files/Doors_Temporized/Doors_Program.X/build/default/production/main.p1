@@ -34,6 +34,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "233
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f877a.h: 233: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
 [v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
+[v F842 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
+[v __delay `JF842 ~T0 @X0 0 e ]
+[p i __delay ]
+"8 main.c
+[p x FOSC = XT ]
+"9
+[p x WDTE = OFF ]
+"10
+[p x PWRTE = ON ]
+"11
+[p x BOREN = ON ]
+"12
+[p x LVP = ON ]
+"13
+[p x CPD = OFF ]
+"14
+[p x WRT = OFF ]
+"15
+[p x CP = OFF ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f877a.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -215,134 +235,157 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"13 main.c
-[; ;main.c: 13: void main(void) {
+"23 main.c
+[; ;main.c: 23: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
+"24
+[; ;main.c: 24: {
 {
 [e :U _main ]
 [f ]
-"14
-[; ;main.c: 14:     TRISB = 0X00;
-[e = _TRISB -> -> 0 `i `uc ]
-"15
-[; ;main.c: 15:     PORTB = 0X00;
-[e = _PORTB -> -> 0 `i `uc ]
-"16
-[; ;main.c: 16:     TRISD = 0XFF;
-[e = _TRISD -> -> 255 `i `uc ]
-"17
-[; ;main.c: 17:     PORTD = 0X00;
-[e = _PORTD -> -> 0 `i `uc ]
-"21
-[; ;main.c: 21:     while(1)
-[e :U 97 ]
-"22
-[; ;main.c: 22:     {
-{
-"24
-[; ;main.c: 24:         if(PORTDbits.RD0==1 && PORTDbits.RD1==0 && PORTDbits.RD2==0 && PORTDbits.RD3==0)
-[e $ ! && && && == -> . . _PORTDbits 0 0 `i -> 1 `i == -> . . _PORTDbits 0 1 `i -> 0 `i == -> . . _PORTDbits 0 2 `i -> 0 `i == -> . . _PORTDbits 0 3 `i -> 0 `i 99  ]
 "25
-[; ;main.c: 25:         {
-{
+[; ;main.c: 25:     TRISB = 0X00;
+[e = _TRISB -> -> 0 `i `uc ]
 "26
-[; ;main.c: 26:             PORTBbits.RB0 = 0;
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 26:     PORTB = 0X00;
+[e = _PORTB -> -> 0 `i `uc ]
 "27
-[; ;main.c: 27:             PORTBbits.RB1 = 1;
+[; ;main.c: 27:     TRISD = 0XFF;
+[e = _TRISD -> -> 255 `i `uc ]
+"28
+[; ;main.c: 28:     PORTD = 0X00;
+[e = _PORTD -> -> 0 `i `uc ]
+"32
+[; ;main.c: 32:     while(1)
+[e :U 97 ]
+"33
+[; ;main.c: 33:     {
+{
+"35
+[; ;main.c: 35:         if(PORTDbits.RD0==1 && PORTDbits.RD1==0 && PORTDbits.RD2==0 && PORTDbits.RD3==0)
+[e $ ! && && && == -> . . _PORTDbits 0 0 `i -> 1 `i == -> . . _PORTDbits 0 1 `i -> 0 `i == -> . . _PORTDbits 0 2 `i -> 0 `i == -> . . _PORTDbits 0 3 `i -> 0 `i 99  ]
+"36
+[; ;main.c: 36:         {
+{
+"37
+[; ;main.c: 37:             PORTBbits.RB0 = 0;
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+"38
+[; ;main.c: 38:             PORTBbits.RB1 = 1;
 [e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
-"29
-[; ;main.c: 29:             PORTBbits.RB1 = 0;
+"39
+[; ;main.c: 39:             _delay((unsigned long)((22000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 22000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"40
+[; ;main.c: 40:             PORTBbits.RB1 = 0;
 [e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-"30
-[; ;main.c: 30:         }
+"41
+[; ;main.c: 41:         }
 }
 [e :U 99 ]
-"32
-[; ;main.c: 32:         if(PORTDbits.RD0==0 && PORTDbits.RD1==1 && PORTDbits.RD2==0 && PORTDbits.RD3==0)
+"43
+[; ;main.c: 43:         if(PORTDbits.RD0==0 && PORTDbits.RD1==1 && PORTDbits.RD2==0 && PORTDbits.RD3==0)
 [e $ ! && && && == -> . . _PORTDbits 0 0 `i -> 0 `i == -> . . _PORTDbits 0 1 `i -> 1 `i == -> . . _PORTDbits 0 2 `i -> 0 `i == -> . . _PORTDbits 0 3 `i -> 0 `i 100  ]
-"33
-[; ;main.c: 33:         {
+"44
+[; ;main.c: 44:         {
 {
-"34
-[; ;main.c: 34:             PORTBbits.RB0 = 1;
+"45
+[; ;main.c: 45:             PORTBbits.RB0 = 1;
 [e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-"35
-[; ;main.c: 35:             PORTBbits.RB1 = 0;
+"46
+[; ;main.c: 46:             PORTBbits.RB1 = 0;
 [e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-"36
-[; ;main.c: 36:             PORTBbits.RB2 = 0;
+"47
+[; ;main.c: 47:             PORTBbits.RB2 = 0;
 [e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
-"37
-[; ;main.c: 37:             PORTBbits.RB3 = 1;
+"48
+[; ;main.c: 48:             PORTBbits.RB3 = 1;
 [e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
-"39
-[; ;main.c: 39:             PORTBbits.RB3 = 0;
+"49
+[; ;main.c: 49:             _delay((unsigned long)((22000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 22000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"50
+[; ;main.c: 50:             PORTBbits.RB3 = 0;
 [e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
-"41
-[; ;main.c: 41:             PORTBbits.RB0 = 0;
+"51
+[; ;main.c: 51:             _delay((unsigned long)((26000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 26000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"52
+[; ;main.c: 52:             PORTBbits.RB0 = 0;
 [e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"42
-[; ;main.c: 42:         }
+"53
+[; ;main.c: 53:         }
 }
 [e :U 100 ]
-"44
-[; ;main.c: 44:         if(PORTDbits.RD0==0 && PORTDbits.RD1==0 && PORTDbits.RD2==1 && PORTDbits.RD3==0)
+"55
+[; ;main.c: 55:         if(PORTDbits.RD0==0 && PORTDbits.RD1==0 && PORTDbits.RD2==1 && PORTDbits.RD3==0)
 [e $ ! && && && == -> . . _PORTDbits 0 0 `i -> 0 `i == -> . . _PORTDbits 0 1 `i -> 0 `i == -> . . _PORTDbits 0 2 `i -> 1 `i == -> . . _PORTDbits 0 3 `i -> 0 `i 101  ]
-"45
-[; ;main.c: 45:         {
+"56
+[; ;main.c: 56:         {
 {
-"46
-[; ;main.c: 46:             PORTBbits.RB2 = 1;
+"57
+[; ;main.c: 57:             PORTBbits.RB2 = 1;
 [e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-"47
-[; ;main.c: 47:             PORTBbits.RB3 = 0;
+"58
+[; ;main.c: 58:             PORTBbits.RB3 = 0;
 [e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
-"48
-[; ;main.c: 48:             PORTBbits.RB4 = 0;
+"59
+[; ;main.c: 59:             PORTBbits.RB4 = 0;
 [e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
-"49
-[; ;main.c: 49:             PORTBbits.RB5 = 1;
+"60
+[; ;main.c: 60:             PORTBbits.RB5 = 1;
 [e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"51
-[; ;main.c: 51:             PORTBbits.RB5 = 0;
+"61
+[; ;main.c: 61:             _delay((unsigned long)((22000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 22000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"62
+[; ;main.c: 62:             PORTBbits.RB5 = 0;
 [e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-"53
-[; ;main.c: 53:             PORTBbits.RB2 = 0;
+"63
+[; ;main.c: 63:             _delay((unsigned long)((26000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 26000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"64
+[; ;main.c: 64:             PORTBbits.RB2 = 0;
 [e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
-"54
-[; ;main.c: 54:         }
+"65
+[; ;main.c: 65:         }
 }
 [e :U 101 ]
-"56
-[; ;main.c: 56:         if(PORTDbits.RD0==0 && PORTDbits.RD1==0 && PORTDbits.RD2==0 && PORTDbits.RD3==1)
+"67
+[; ;main.c: 67:         if(PORTDbits.RD0==0 && PORTDbits.RD1==0 && PORTDbits.RD2==0 && PORTDbits.RD3==1)
 [e $ ! && && && == -> . . _PORTDbits 0 0 `i -> 0 `i == -> . . _PORTDbits 0 1 `i -> 0 `i == -> . . _PORTDbits 0 2 `i -> 0 `i == -> . . _PORTDbits 0 3 `i -> 1 `i 102  ]
-"57
-[; ;main.c: 57:         {
+"68
+[; ;main.c: 68:         {
 {
-"58
-[; ;main.c: 58:             PORTBbits.RB4 = 1;
+"69
+[; ;main.c: 69:             PORTBbits.RB4 = 1;
 [e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
-"59
-[; ;main.c: 59:             PORTBbits.RB5 = 0;
+"70
+[; ;main.c: 70:             PORTBbits.RB5 = 0;
 [e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-"62
-[; ;main.c: 62:             PORTBbits.RB4 = 0;
+"71
+[; ;main.c: 71:             _delay((unsigned long)((22000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 22000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"72
+[; ;main.c: 72:             _delay((unsigned long)((26000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 26000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"73
+[; ;main.c: 73:             PORTBbits.RB4 = 0;
 [e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
-"63
-[; ;main.c: 63:         }
+"74
+[; ;main.c: 74:         }
 }
 [e :U 102 ]
-"64
-[; ;main.c: 64:     }
+"75
+[; ;main.c: 75:     }
 }
 [e :U 96 ]
 [e $U 97  ]
 [e :U 98 ]
-"65
-[; ;main.c: 65:     return;
+"76
+[; ;main.c: 76:     return;
 [e $UE 95  ]
-"66
-[; ;main.c: 66: }
+"77
+[; ;main.c: 77: }
 [e :UE 95 ]
 }
