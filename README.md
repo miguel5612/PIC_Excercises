@@ -26,6 +26,7 @@ Using the PIC16F877 you will monitor the amount of light that is presented
 in the lab, so the following should be done:
 * Using a photoresist or similar element to sense the amount of lumenz that exists in the laboratory 
 * Perform an average of minimum and maximum amount of light (you can use a percentage scale from 0% to 100%) that may exist in the laboratory, if the amount of light falls below 40%, a light bulb must be turned on to level the amount of light and pass 80% of lumen.
+
 ![Ex3](https://github.com/miguel5612/PIC_Excercises/blob/master/Img/Lamps.PNG)
 ## Software used:
 * MPLAB X IDE v5.2.0
