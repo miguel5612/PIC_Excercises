@@ -19,6 +19,8 @@ Starting the clock at 0:00 no door is opened.
     * Next door to be opened.
     * Next door to be closed.
     * Lumen level in the laboratory
+ 
+ 
 ![Ex2](https://github.com/miguel5612/PIC_Excercises/blob/master/Img/Doors_Main.PNG)
 # PIC16F877A_Light_Monitor
 ## Problem
