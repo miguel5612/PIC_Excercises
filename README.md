@@ -31,7 +31,7 @@ in the lab, so the following should be done:
 
 ![Ex3](https://github.com/miguel5612/PIC_Excercises/blob/master/Img/Lamps.PNG)
 ## Software used:
-* MPLAB X IDE v5.2.0
+* MPLAB X IDE v5.2.0 (MASM and XC8 Compiler)
 * Proteus 8 profesional
 ## Authors
 * **Miguel A. Califa U.** - [*GitHub*](https://github.com/miguel5612) - [CV](https://scienti.colciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000050477)
